@@ -1,4 +1,3 @@
-import 'package:builder_job/src/utils/media_utils/media_utils.dart';
 import 'package:flutter/material.dart';
 
 class AuthView extends StatefulWidget {
@@ -11,8 +10,9 @@ class AuthView extends StatefulWidget {
 class _AuthViewState extends State<AuthView> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaUtils.height(context);
-    final width = MediaUtils.width(context);
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: const Color(0xff1E1E1E),
       body: Padding(
@@ -20,7 +20,9 @@ class _AuthViewState extends State<AuthView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logoHorizontal.png'),
+            SizedBox(height: height * 0.1),
+            Image.asset('assets/images/logoHorizontal.png',
+                height: height * 0.1),
             SizedBox(
               height: height * 0.02,
             ),
@@ -62,17 +64,19 @@ class RegistrationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32.0),
+        padding: EdgeInsets.symmetric(horizontal: height * 0.04),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
             const LogoWidget(),
-            const SizedBox(height: 40.0),
+            SizedBox(height: height * 0.05),
             const RegistrationForm(),
-            const SizedBox(height: 20.0),
+            SizedBox(height: height * 0.02),
             ElevatedButton(
               onPressed: () {
                 // Handle the registration logic here
@@ -83,8 +87,8 @@ class RegistrationScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                minimumSize: const Size(double.infinity, 56.0),
+                padding: EdgeInsets.symmetric(vertical: height * 0.02),
+                minimumSize: Size(double.infinity, height * 0.08),
               ),
               child: const Text('Далее'),
             ),
@@ -101,11 +105,13 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         Image.asset('assets/images/logoHorizontal.png',
-            height: 80.0), // Replace with your logo asset
-        const SizedBox(height: 8.0),
+            height: height * 0.1), // Replace with your logo asset
+        SizedBox(height: height * 0.01),
         const Text(
           'Builder Job',
           style: TextStyle(
@@ -114,7 +120,7 @@ class LogoWidget extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        const SizedBox(height: 40.0),
+        SizedBox(height: height * 0.05),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -129,7 +135,7 @@ class LogoWidget extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 2.0),
+                  SizedBox(height: height * 0.005),
                   Container(
                     height: 2.0,
                     width: 60.0,
@@ -138,7 +144,7 @@ class LogoWidget extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(width: 40.0),
+            SizedBox(width: height * 0.05),
             GestureDetector(
               onTap: () {},
               child: const Text(
@@ -161,28 +167,33 @@ class RegistrationForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final height = MediaQuery.of(context).size.height;
+
+    return Column(
       children: [
         TextField(
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: 'Email',
           ),
+          style: TextStyle(fontSize: height * 0.02),
         ),
-        SizedBox(height: 16.0),
+        SizedBox(height: height * 0.02),
         TextField(
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: 'Пароль',
             suffixIcon: Icon(Icons.visibility_off),
           ),
           obscureText: true,
+          style: TextStyle(fontSize: height * 0.02),
         ),
-        SizedBox(height: 16.0),
+        SizedBox(height: height * 0.02),
         TextField(
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: 'Номер телефона',
           ),
+          style: TextStyle(fontSize: height * 0.02),
         ),
-        SizedBox(height: 16.0),
+        SizedBox(height: height * 0.02),
         // DropdownButtonFormField<String>(
         //   items: [
         //     DropdownMenuItem(
