@@ -26,6 +26,7 @@ class ProfileView extends StatelessWidget {
                 height: height * 0.04,
               ),
               ProfileViewBody(height: height, width: width),
+              
             ],
           ),
         ),

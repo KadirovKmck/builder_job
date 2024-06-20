@@ -20,6 +20,7 @@ class App extends StatelessWidget {
       title: 'Builder Job',
       theme: ThemeData(
         primarySwatch: Colors.yellow,
+        
         scaffoldBackgroundColor: const Color(0xFF1E1E1E),
         inputDecorationTheme: const InputDecorationTheme(
           filled: true,
