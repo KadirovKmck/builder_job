@@ -103,6 +103,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
   bool _isPasswordValid = true;
   bool _isPhoneValid = true;
   bool _isStatusValid = true;
+  bool _isPasswordVisible = false; // Added to handle password visibility toggle
 
   void _validateFields() {
     setState(() {
@@ -150,7 +151,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
             controller: _passwordController,
             decoration: InputDecoration(
               hintText: 'Пароль',
-              suffixIcon: const Icon(Icons.visibility_off),
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isPasswordVisible = !_isPasswordVisible;
+                  });
+                },
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25),
                 borderSide: BorderSide(
@@ -158,7 +168,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     width: 2),
               ),
             ),
-            obscureText: true,
+            obscureText: !_isPasswordVisible, // Toggle password visibility
             style: TextStyle(fontSize: height * 0.02),
           ),
           SizedBox(height: height * 0.02),
