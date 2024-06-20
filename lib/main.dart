@@ -1,4 +1,4 @@
-import 'package:builder_job/src/presentation/auth_view/auth_view.dart';
+import 'package:builder_job/src/presentation/registration_screen/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
