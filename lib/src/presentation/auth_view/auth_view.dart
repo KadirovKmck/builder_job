@@ -106,21 +106,15 @@ class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
 
     return Column(
       children: [
-        Image.asset('assets/images/logoHorizontal.png',
-            height: height * 0.1), // Replace with your logo asset
-        SizedBox(height: height * 0.01),
-        const Text(
-          'Builder Job',
-          style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
+        Image.asset(
+          'assets/images/logoHorizontal.png',
+          height: height * 0.3,
+          width: width * 3,
         ),
-        SizedBox(height: height * 0.05),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
