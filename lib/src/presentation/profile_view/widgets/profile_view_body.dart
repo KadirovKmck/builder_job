@@ -14,7 +14,7 @@ class ProfileViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height * 0.64,
+      height: height * 0.62,
       width: width,
       decoration: const BoxDecoration(
         color: Colors.white,
