@@ -1,4 +1,4 @@
-import 'package:builder_job/src/presentation/auth_view/auth_view.dart';
+import 'package:builder_job/src/presentation/registration_screen/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -20,6 +20,7 @@ class App extends StatelessWidget {
       title: 'Builder Job',
       theme: ThemeData(
         primarySwatch: Colors.yellow,
+        
         scaffoldBackgroundColor: const Color(0xFF1E1E1E),
         inputDecorationTheme: const InputDecorationTheme(
           filled: true,
