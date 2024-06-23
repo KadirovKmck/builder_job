@@ -23,55 +23,57 @@ class CardOfPhoneScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Center(
-              child: Image.asset(
-                'assets/images/phon_card.png',
-                height: screenHeight * 0.35,
-              ),
-            ),
-            SizedBox(
-              height: screenHeight * 0.07,
-            ),
-            TextField(
-              controller: phoneNumberController,
-              decoration: const InputDecoration(labelText: 'Номер телефона'),
-            ),
-            SizedBox(height: screenHeight * 0.03),
-            TextField(
-              controller: amountController,
-              decoration: const InputDecoration(labelText: 'Сумма'),
-              keyboardType: TextInputType.number,
-            ),
-            SizedBox(height: screenHeight * 0.07),
-            GestureDetector(
-              onTap: () {
-                _processTransaction(context);
-              },
-              child: Container(
-                width: screenWidth * 0.9,
-                height: 61,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFFFEE1F),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
-                  ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/images/phon_card.png',
+                  height: screenHeight * 0.35,
                 ),
-                child: const Center(
-                  child: Text(
-                    'Пополнить',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 22,
-                      fontWeight: FontWeight.w400,
+              ),
+              SizedBox(
+                height: screenHeight * 0.07,
+              ),
+              TextField(
+                controller: phoneNumberController,
+                decoration: const InputDecoration(labelText: 'Номер телефона'),
+              ),
+              SizedBox(height: screenHeight * 0.03),
+              TextField(
+                controller: amountController,
+                decoration: const InputDecoration(labelText: 'Сумма'),
+                keyboardType: TextInputType.number,
+              ),
+              SizedBox(height: screenHeight * 0.07),
+              GestureDetector(
+                onTap: () {
+                  _processTransaction(context);
+                },
+                child: Container(
+                  width: screenWidth * 0.9,
+                  height: 61,
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFFFFEE1F),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Пополнить',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -5,16 +5,21 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xFFEDEEF0),
         body: Column(
           children: [
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.05,
+                vertical: screenHeight * 0.01,
+              ),
               child: Container(
-                height: 50,
+                height: screenHeight * 0.06,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
@@ -37,66 +42,71 @@ class HomeView extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 20.0,
-                    mainAxisSpacing: 20.0,
-                    childAspectRatio: 0.59,
-                  ),
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
+                padding: EdgeInsets.all(screenWidth * 0.05),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: constraints.maxWidth > 600 ? 3 : 2,
+                        crossAxisSpacing: screenWidth * 0.05,
+                        mainAxisSpacing: screenHeight * 0.02,
+                        childAspectRatio: screenWidth / screenHeight,
                       ),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 200,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/buldozerist.png'),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                              ),
-                            ),
+                      itemCount: 4,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
                           ),
-                          const Padding(
-                            padding: EdgeInsets.only(
-                              right: 65,
-                            ),
-                            child: Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: '60 000 ₸\n',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 21,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: screenHeight * 0.24,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/images/buldozerist.png'),
+                                    fit: BoxFit.cover,
                                   ),
-                                  TextSpan(
-                                    text: 'Требуется\nсварщик',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400,
-                                    ),
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20),
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.all(screenWidth * 0.02),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '60 000 ₸\n',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: screenWidth * 0.05,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Требуется сварщик',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: screenWidth * 0.045,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     );
                   },
                 ),

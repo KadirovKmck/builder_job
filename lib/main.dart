@@ -1,4 +1,4 @@
-import 'package:builder_job/src/presentation/registration_screen/registration_screen.dart';
+import 'package:builder_job/src/presentation/registration/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -15,12 +15,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const RegistrationScreen(),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
       title: 'Builder Job',
       theme: ThemeData(
         primarySwatch: Colors.yellow,
-        
         scaffoldBackgroundColor: const Color(0xFF1E1E1E),
         inputDecorationTheme: const InputDecorationTheme(
           filled: true,
