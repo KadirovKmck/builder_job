@@ -1,5 +1,3 @@
-import 'package:builder_job/src/presentation/announcement_view/announcement_view.dart';
-import 'package:builder_job/src/presentation/registration/login_view.dart';
 import 'package:builder_job/src/presentation/registration/registerview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -20,8 +18,7 @@ class App extends StatelessWidget {
     return ResponsiveSizer(
       builder: (context, orientation, screenType) {
         return MaterialApp(
-          home: const AnnouncementView(),
-          // home: const RegistrationScreen(),
+          home: const RegistrationScreen(),
           debugShowCheckedModeBanner: false,
           title: 'Builder Job',
           theme: ThemeData(
