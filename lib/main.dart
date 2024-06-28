@@ -1,6 +1,9 @@
+import 'package:builder_job/src/presentation/announcement_view/announcement_view.dart';
 import 'package:builder_job/src/presentation/registration/login_view.dart';
+import 'package:builder_job/src/presentation/registration/registerview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -14,24 +17,29 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const LoginScreen(),
-      debugShowCheckedModeBanner: false,
-      title: 'Builder Job',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-        scaffoldBackgroundColor: const Color(0xFF1E1E1E),
-        inputDecorationTheme: const InputDecorationTheme(
-          filled: true,
-          fillColor: Colors.white,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
-            borderSide: BorderSide.none,
+    return ResponsiveSizer(
+      builder: (context, orientation, screenType) {
+        return MaterialApp(
+          home: const AnnouncementView(),
+          // home: const RegistrationScreen(),
+          debugShowCheckedModeBanner: false,
+          title: 'Builder Job',
+          theme: ThemeData(
+            primarySwatch: Colors.yellow,
+            scaffoldBackgroundColor: Colors.white,
+            inputDecorationTheme: const InputDecorationTheme(
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                borderSide: BorderSide.none,
+              ),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+            ),
           ),
-          contentPadding:
-              EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
-        ),
-      ),
+        );
+      },
     );
   }
 }
